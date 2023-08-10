@@ -1,0 +1,54 @@
+//
+// Created by 86189 on 2023/8/10.
+//
+#include<stdio.h>
+typedef unsigned int  uint32;
+
+
+
+typedef   struct {
+    uint32 prescaler;
+    uint32 mode;
+    uint32 SJW;
+    uint32 BS1;
+    uint32 BS2;
+    uint32 TTCM;
+    uint32 ABOM;
+    uint32 AWUM;
+    uint32 NART;
+    uint32 RFLM;
+    uint32 TXFP;
+
+}initTypeDef;
+
+
+typedef struct{
+    uint32 instance;
+    uint32 *pTxMsg;
+    uint32 *pRxMsg;
+    initTypeDef Init;
+
+}CAN_HandleTypeDef;
+
+uint32 a = 99;
+uint32 b = 98;
+int main(void){
+    initTypeDef Init={0,1,2,3,4,5,6,7,8,9,10};
+
+    CAN_HandleTypeDef CAN1_Handler={1,&a,&b,Init};
+
+
+    printf("%d\n",CAN1_Handler.instance);
+    printf("%d\n",*CAN1_Handler.pTxMsg);
+    printf("%d\n",*CAN1_Handler.pRxMsg);
+    printf("%d\n",CAN1_Handler.Init.ABOM);
+    printf("%d\n",CAN1_Handler.Init.prescaler);
+
+    printf("%d\n",CAN1_Handler.Init.mode);
+    printf("%d\n",CAN1_Handler.Init.BS1);
+
+
+
+
+
+}
